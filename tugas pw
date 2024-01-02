@@ -1,0 +1,364 @@
+chat massage
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <style>
+        .container {
+            border: 1px solid black;
+            height: 32%;
+            width: 20%;
+            position: fixed;
+            left: 70%;
+            top: 65%;
+        }
+
+        .inp {
+            width: 95%;
+        }
+
+        .chat {
+            width: 100%;
+            height: 180px;
+            background-color: b;
+        }
+
+        .message {
+            display: flex;
+        }
+
+        button {
+            width: 30%;
+        }
+    </style>
+
+    <script>
+        function chat() {
+            let elemen, teks, parent, spasi;
+            let inp_chat = document.getElementById("inp_chat").value;
+            elemen = document.createElement("span");
+            spasi = document.createElement("br");
+            teks = document.createTextNode(inp_chat);
+
+            elemen.appendChild(teks);
+
+            parent = document.getElementById("msg_user");
+            parent.appendChild(spasi);
+            parent.appendChild(elemen);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="chat" id="msg_user"></div>
+        <div class="message">
+            <input type="text" class="inp" id="inp_chat" onfocus="this.value=''" />
+            <button onclick="chat()">Kirim</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+index
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function image_picker (){
+            const list_image = ["4.jpg", "5.jpg", "6.jpg"];
+            let pilihan = document.getElementById("opsi").value;
+
+            if(pilihan == "strawberry" ){
+                let select = list_image[0]; //5.jpg
+                document.getElementById("gambar").scr = `image/${select}`;
+            }
+
+            if(pilihan == "oat drips"){
+                let select = list_image[1]; //4.jpg
+                document.getElementById("gambar").src = `image/${select}`;
+            }
+
+            if(pilihan == "pisang"){
+                let select = list_image[2]; //6.jpg
+                document.getElementById("gambar").src = `image/${select}`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1> Image  Picker </h1>
+
+    <select name="" id="opsi" onchange="image_picker()">
+        <option value="oat drips"> oat drips</option>
+        <option value="strawberry"> strawberry </option>
+        <option value="pisang"> pisang </option>
+    </select>
+
+    <div class="container">
+        <img id="gambar" width="500px">
+    </div>
+</body>
+</html>
+
+kurs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURS</title>
+</head>
+<body>
+    <form style="background-color:rgb(241, 12, 222) ;">
+        <fieldset>
+            <legend>KURS RUPIAH - Mata Uang Asing</legend>
+            <table border="1">
+                <thead>
+                    <th>Masukan Nilai</th>
+                    <th>Valas</th>
+                    <th>Nilai Rupiah</th>
+                </thead>
+                <tbody>
+                    <td><input type="number" id="uang"></td>
+                    <td>
+                        <select name="" id="pilihan" onchange="">
+                            <option value="">- - - - - PILIH - - - - -</option>
+                            <option value="usd">Dollar US</option>
+                            <option value="sd">Dollar Singapore</option>
+                            <option value="rm">Ringgit Malaysia</option>
+                            <option value="yen">Yen Jepan</option>
+                            <option value="euro"> EURO</option>
+                            <option value="riyal">Riyal Saudi Arabia</option>
+                        </select>
+                    </td>
+                    <td><input type="number" id="konversi"></td>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+        let pilihan = document.getElementById('pilihan');
+
+        pilihan.onchange = function(){
+            let uang = document.getElementById('uang').value;
+            if (pilihan.value == 'usd'){
+                document.getElementById('konversi').value = uang*9915;
+            }else if (pilihan.value == 'sd'){
+                document.getElementById('konversi').value= uang*12472;
+            }else if (pilihan.value == 'rm'){
+                document.getElementById('konversi').value= uang*874;
+            }else if (pilihan.value == 'yen'){
+                document.getElementById('konversi').value= uang*120;
+            }else if (pilihan.value == 'euro'){
+                document.getElementById('konversi').value= uang*15888;
+            }else if (pilihan.value == 'riyal'){
+                document.getElementById('konversi').value= uang*3592;
+            }else {
+                document.getElementById('konversi').value='Anda tidak Memilih';
+            }
+        }
+    </script>
+</body>
+</html>
+
+login
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .judul h1{
+    text-align: center;
+  }
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      width: 300px;
+      margin: 0 auto;
+    }
+    input {
+      width: 93%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+</style>
+<body>
+  <div class="judul">
+    <h1>Form Login</h1>
+  </div>  
+    <form action="" method="GET">
+    <label for="">Username</label>
+    <input type="text" name="username" id="username" placeholder="Username">
+    <label for="">Password</label>
+    <input type="password" name="password" id="password" placeholder="Password">
+    <button type="submit" onclick="return login()"> Login</button>
+  </form>
+</body>
+<script src="authentic.js"></script>
+</html>
+
+form pelanggan
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+</head>
+<body>
+    <form id="formValidation">
+        <label for="namaPelanggan">Nama Pelanggan:</label><br>
+        <input type="text" id="namaPelanggan" name="namaPelanggan" maxlength="30"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="jamKeberangkatan">Jam Keberangkatan:</label><br>
+        <input type="time" id="jamKeberangkatan" name="jamKeberangkatan"><br>
+        <label for="tujuanKeberangkatan">Tujuan Keberangkatan:</label><br>
+        <input type="text" id="tujuanKeberangkatan" name="tujuanKeberangkatan"><br>
+        <label for="jumlahTiket">Jumlah Tiket:</label><br>
+        <input type="number" id="jumlahTiket" name="jumlahTiket" min="1" max="10"><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+    
+    <script>
+        const form = document.getElementById('formValidation');
+        form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        const namaPelanggan = form.namaPelanggan.value;
+        const email = form.email.value;
+        const jamKeberangkatan = form.jamKeberangkatan.value;
+        const tujuanKeberangkatan = form.tujuanKeberangkatan.value;
+        const jumlahTiket = form.jumlahTiket.value;
+    
+        // Validasi nama pelanggan
+        if (!namaPelanggan) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Nama pelanggan harus diisi';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.namaPelanggan.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.namaPelanggan.parentNode.insertBefore(errorMessage, form.namaPelanggan.nextSibling);
+            form.namaPelanggan.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+            return;
+        }
+    
+        // Validasi email
+        if (!email) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Email harus diisi';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.email.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.email.parentNode.insertBefore(errorMessage, form.email.nextSibling);
+            form.email.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+            return;
+        }
+    
+        // Validasi jam keberangkatan
+        if (!jamKeberangkatan) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Jam keberangkatan harus diisi';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.jamKeberangkatan.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.jamKeberangkatan.parentNode.insertBefore(errorMessage, form.jamKeberangkatan.nextSibling);
+            form.jamKeberangkatan.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+            return;
+        }
+    
+        // Validasi tujuan keberangkatan
+        if (!tujuanKeberangkatan) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Tujuan keberangkatan harus diisi';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.tujuanKeberangkatan.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.tujuanKeberangkatan.parentNode.insertBefore(errorMessage, form.tujuanKeberangkatan.nextSibling);
+            form.tujuanKeberangkatan.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+
+            return;
+        }
+    
+        // Validasi jumlah tiket
+        if (!jumlahTiket || jumlahTiket < 1 || jumlahTiket > 10) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Jumlah tiket harus diisi dengan bilangan bulat antara 1-10';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.jumlahTiket.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.jumlahTiket.parentNode.insertBefore(errorMessage, form.jumlahTiket.nextSibling);
+            form.jumlahTiket.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+
+            return;
+        }
+    
+        // Tampilkan data yang telah diinput oleh pengguna
+        const formData = `
+            Nama Pelanggan: ${namaPelanggan}
+            Email: ${email}
+            Jam Keberangkatan: ${jamKeberangkatan}
+            Tujuan Keberangkatan: ${tujuanKeberangkatan}
+            Jumlah Tiket: ${jumlahTiket}
+        `;
+    
+        document.body.innerHTML += <pre>${formData}</pre>;
+    
+        // Tampilkan pesan sukses
+        alert('Data berhasil dikirim');
+        });
+    </script>
+</body>
+</html>
